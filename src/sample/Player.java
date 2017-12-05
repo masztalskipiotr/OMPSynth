@@ -2,7 +2,7 @@ package sample;
 
 import javax.sound.sampled.*;
 
-public class Player extends Thread {
+public class Player extends Thread{
 
     // Instance data
     private AudioFormat format;
@@ -18,10 +18,6 @@ public class Player extends Thread {
     private static final int     CHANNELS = 1;
     private static final boolean SIGNED = true;
     private static final boolean BIG_ENDIAN = true;
-
-    static Mixer.Info[] getMixerInfo() {
-        return new Mixer.Info[0];
-    }
 
     // Chunk of audio processed at one time
     public static final int BUFFER_SIZE = 2048;

@@ -6,10 +6,10 @@ public class Synth {
     static Player player = new Player();
     MidiController control = new MidiController();
 
-    double freq;
-    int mod;
-    int shape1;
-    int shape2;
+//    double freq;
+//    int mod;
+//    int shape1;
+//    int shape2;
 
     public Synth() {
         player = new Player();

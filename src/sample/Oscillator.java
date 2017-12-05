@@ -2,57 +2,30 @@ package sample;
 
 public class Oscillator implements SampleProvider {
 
-    // Instance data
+
     private WAVESHAPE waveshape;
     private long periodSamples;
     private long sampleNumber;
 
-
-    /**
-     * Waveshape enumeration
-     */
     public enum WAVESHAPE {
         SIN, SQU, SAW
     }
 
-    /**
-     * Basic Oscillator Class Constructor
-     *
-     * Default instance has SIN waveshape at 1000 Hz
-     */
     public Oscillator() {
 
-        // Set defaults
         setOscWaveshape(WAVESHAPE.SIN);
         setFrequency(440.0);
     }
 
-    /**
-     * Set waveshape of oscillator
-     *
-     *
-     * @param waveshape Determines the waveshape of this oscillator
-     */
     public void setOscWaveshape(WAVESHAPE waveshape) {
         this.waveshape = waveshape;
     }
 
-    /**
-     * Set the frequency of the oscillator in Hz.
-     *
-     * @param frequency Frequency in Hz for this oscillator
-     */
 
     public void setFrequency(double frequency) {
 
         periodSamples = (long)(Player.SAMPLE_RATE / frequency);
     }
-
-    /**
-     * Return the next sample of the oscillator's waveform
-     *
-     * @return Next oscillator sample
-     */
 
     protected double getSample() {
 
@@ -85,13 +58,6 @@ public class Oscillator implements SampleProvider {
         return value;
     }
 
-    /**
-     * Get a buffer of oscillator samples
-     *
-     * @param buffer Array to fill with samples
-     *
-     * @return Count of bytes produced.
-     */
     public int getSamples(byte [] buffer) {
         int index = 0;
         for (int i = 0; i < Player.SAMPLES_PER_BUFFER; i++) {
@@ -102,7 +68,5 @@ public class Oscillator implements SampleProvider {
         }
         return Player.BUFFER_SIZE;
     }
-
-
 
 }
