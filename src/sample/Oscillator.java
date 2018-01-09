@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Oscillator  {
 
     private long periodSamples;
@@ -67,10 +69,10 @@ public class Oscillator  {
         double sine = this.sinValue * Math.sin(2.0 * Math.PI * x);
         double square;
         if (sampleNumber < (periodSamples / 2)) {
-            square = this.squareValue * 0.9;
-        }else { square = this.squareValue * (-0.9); }
+            square = this.squareValue * 0.99;
+        }else { square = this.squareValue * -0.99; }
         double saw =  this.sawValue * 2.0 * (x - Math.floor(x + 0.5));
-        value = sine + square + saw;
+        value = (sine + square + saw)/3;
 
         return value;
     }
