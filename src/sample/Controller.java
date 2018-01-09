@@ -1,48 +1,65 @@
 package sample;
 
-import com.sun.swing.internal.plaf.synth.resources.synth;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.Slider;
+
 
 public class Controller {
 
     private Synth synth = new Synth();
 
     @FXML
-    private RadioButton sine;
+    private Slider sin;
     @FXML
-    private RadioButton square;
+    private Slider square;
     @FXML
-    private RadioButton saw;
+    private Slider saw;
+
+    public void initialize() {
+
+        sin.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            synth.setOscSineValue(newValue.doubleValue());
 
 
+        });
+        square.valueProperty().addListener((observable, oldValue, newValue) -> {
 
-    @FXML
-    public void selectSine (ActionEvent event){
-        System.out.println("Sine is " + (sine.isSelected()?"on":"off"));
-        synth.setShape(1);
-        saw.setSelected(false);
-        square.setSelected(false);
+            synth.setOscSquareValue(newValue.doubleValue());
+
+
+        });
+        saw.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            synth.setOscSawValue(newValue.doubleValue());
+
+
+        });
     }
 
-    @FXML
-    public void selectSquare (ActionEvent event){
-        System.out.println("Square is " + (square.isSelected()?"on":"off"));
-        synth.setShape(2);
-        sine.setSelected(false);
-        saw.setSelected(false);
-    }
 
-    @FXML
-    public void selectSaw (ActionEvent event){
-        System.out.println("Saw is " + (saw.isSelected()?"on":"off"));
-        synth.setShape(3);
-        sine.setSelected(false);
-        square.setSelected(false);
-    }
+//
+//    @FXML
+//    public void selectSine (ActionEvent event){
+//            System.out.println("Sine is " + (sine.isSelected() ? "on" : "off"));
+//            synth.setShape(1);
+//    }
+//
+//    @FXML
+//    public void selectSquare (ActionEvent event){
+//        System.out.println("Square is " + (square.isSelected()?"on":"off"));
+//        synth.setShape(2);
+//    }
+//
+//    @FXML
+//    public void selectSaw (ActionEvent event){
+//        System.out.println("Saw is " + (saw.isSelected()?"on":"off"));
+//        synth.setShape(3);
+//    }
+
+
+//    @FXML
+//    public void sineControl(){
+//        synth.setSinValue(sin.getValue());
+//    }
 }
