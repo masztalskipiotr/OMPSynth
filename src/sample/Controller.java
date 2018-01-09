@@ -36,30 +36,4 @@ public class Controller {
 
         });
     }
-
-
-//
-//    @FXML
-//    public void selectSine (ActionEvent event){
-//            System.out.println("Sine is " + (sine.isSelected() ? "on" : "off"));
-//            synth.setShape(1);
-//    }
-//
-//    @FXML
-//    public void selectSquare (ActionEvent event){
-//        System.out.println("Square is " + (square.isSelected()?"on":"off"));
-//        synth.setShape(2);
-//    }
-//
-//    @FXML
-//    public void selectSaw (ActionEvent event){
-//        System.out.println("Saw is " + (saw.isSelected()?"on":"off"));
-//        synth.setShape(3);
-//    }
-
-
-//    @FXML
-//    public void sineControl(){
-//        synth.setSinValue(sin.getValue());
-//    }
 }
