@@ -1,60 +1,62 @@
 package sample;
 
+import sample.MidiController;
+import sample.Oscillator;
+import sample.Player;
+
 public class Synth {
 
-    static Oscillator osc = new Oscillator();
+    static Oscillator[] osc = new Oscillator[16];
     static Player player = new Player();
     MidiController control = new MidiController();
 
-//    double freq;
-//    int mod;
-//    int shape1;
-//    int shape2;
-
     public Synth() {
-        player = new Player();
-        osc = new Oscillator();
-        player.setSampleProvider(osc);
+        for(int i=0;i<16;i++) {
+            osc[i] = new Oscillator();
+        }
+    }
+
+    public static void playNote(double freq, int num,int vol) {
+        for(int i=0;i<16;i++){
+            if (!osc[i].isClicked()) {
+                osc[i].midiNum=num;
+                osc[i].clicked();
+                osc[i].setFrequency(freq);
+                osc[i].setVol(vol);
+                break;
+            }
+        }
 
     }
 
-    public static void setFrequency(double freq) {
-
-        osc.setFrequency(freq);
-    }
-
-    public static void playNote(double freq) {
-        setFrequency(freq);
-
-    }
-
-    public static void stopNote() {
-
-        setFrequency(0);
-
+    public static void stopNote(int num) {
+        for(int i=0;i<16;i++) {
+            if(osc[i].midiNum==num) {
+                osc[i].released();
+                osc[i].setFrequency(0);
+                break;
+            }
+        }
     }
 
     public static void playOsc(){
         player.startPlayer();
     }
 
-    public static void stopOsc(){
-        player.stopPlayer();
-    }
-
     public void setShape(int shape1) {
+
         switch (shape1) {
-
             case 1:
-                osc.setOscWaveshape(Oscillator.WAVESHAPE.SIN);
+                for(int i=0; i<16;i++) {
+                    osc[i].setOscWaveshape(Oscillator.WAVESHAPE.SIN); }
                 break;
-
             case 2:
-                osc.setOscWaveshape(Oscillator.WAVESHAPE.SQU);
+                for(int i=0; i<16;i++) {
+                    osc[i].setOscWaveshape(Oscillator.WAVESHAPE.SQU); }
                 break;
-
             case 3:
-                osc.setOscWaveshape(Oscillator.WAVESHAPE.SAW);
+                for(int i=0; i<16;i++) {
+                    osc[i].setOscWaveshape(Oscillator.WAVESHAPE.SAW); }
                 break;
         }
     }

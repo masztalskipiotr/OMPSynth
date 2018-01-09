@@ -2,6 +2,7 @@ package sample;
 
 import javax.sound.midi.*;
 
+
         /*MidiInputReceiver takes the midi controller midi signals and sends them to the MidiParser*/
 
 public class MidiInputReceiver implements javax.sound.midi.Receiver {
@@ -19,3 +20,5 @@ public class MidiInputReceiver implements javax.sound.midi.Receiver {
     public void close(){}
 
 }
+
+

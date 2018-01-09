@@ -44,8 +44,11 @@ public final class MidiParser{
 
         double freq = Math.rint(8.1757989156 * Math.pow(2.0, data1 / 12.0) * 10000.0) / 10000.0;
         System.out.println(freq);
-        Synth.playNote(freq);
+        Synth.playNote(freq,data1,data2);
+
         count++;
+        System.out.println(count);
+
         if(runCheck==0){
             Synth.playOsc();
             runCheck++;
@@ -56,9 +59,9 @@ public final class MidiParser{
         //seproject.Systemui.info.append(" Note off " + data1 +" - decay is " + data2 +"\n");
         System.out.println("Note off "+data1+" - decay is "+data2);
         count--;
-        if (count==0){
-            Synth.stopNote();
-        }
+        //if (count==0){
+        Synth.stopNote(data1);
+        //}
     }
 
 
