@@ -1,7 +1,5 @@
 package sample;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Oscillator  {
 
     private long periodSamples;
@@ -62,7 +60,7 @@ public class Oscillator  {
         return vol;
     }
 
-    public double mixShapes()
+    private double mixShapes()
     {
         double value;
         double x = sampleNumber / (double) periodSamples;
@@ -78,7 +76,7 @@ public class Oscillator  {
     }
 
 
-    protected double getSample() {
+    public double getSample() {
         sampleNumber = (sampleNumber + 1) % periodSamples;
         return mixShapes();
     }

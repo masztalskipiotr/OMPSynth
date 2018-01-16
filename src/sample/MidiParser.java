@@ -39,7 +39,6 @@ public final class MidiParser{
     }
 
     public static void noteOnEvent(long timestamp, int track, int data1, int data2){
-        //seproject.Systemui.info.append(" Note on " + data1 +" - attack is " + data2 + "\n");
         System.out.println("Note on " + data1 +" - attack is " + data2);
 
         double freq = Math.rint(8.1757989156 * Math.pow(2.0, data1 / 12.0) * 10000.0) / 10000.0;
@@ -56,12 +55,10 @@ public final class MidiParser{
     }
 
     public static void noteOffEvent(long timestamp, int track, int data1, int data2){
-        //seproject.Systemui.info.append(" Note off " + data1 +" - decay is " + data2 +"\n");
         System.out.println("Note off "+data1+" - decay is "+data2);
         count--;
-        //if (count==0){
         Synth.stopNote(data1);
-        //}
+
     }
 
 

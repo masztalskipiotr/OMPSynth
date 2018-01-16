@@ -3,11 +3,12 @@ package sample;
 
 public class Synth  {
 
-    static Oscillator[] osc = new Oscillator[16];
+    static Oscillator[] osc;
     static Player player = new Player();
     MidiController control = new MidiController();
 
     public Synth() {
+        osc = new Oscillator[16];
         for (int i = 0; i < 16; i++) {
             osc[i] = new Oscillator();
         }
