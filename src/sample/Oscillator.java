@@ -60,7 +60,7 @@ public class Oscillator  {
         return vol;
     }
 
-    private double mixShapes()
+    public double mixShapes()
     {
         double value;
         double x = sampleNumber / (double) periodSamples;
