@@ -2,7 +2,7 @@ package sample;
 
 public class Mixer {
 
-    protected static double suma() {
+    protected static double polySignal() {
         double sum = 0;
 
         for(int i=0; i< 16  ;i++) {
@@ -14,7 +14,7 @@ public class Mixer {
     public static int getSamples(byte[] buffer) {
         int index = 0;
         for (int i = 0; i < Player.SAMPLES_PER_BUFFER; i++) {
-            double ds = suma() * Short.MAX_VALUE;
+            double ds = polySignal() * Short.MAX_VALUE;
             short ss = (short) Math.round(ds);
             buffer[index++] = (byte)(ss >> 8);
             buffer[index++] = (byte)(ss & 0xFF);
