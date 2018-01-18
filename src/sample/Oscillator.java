@@ -11,6 +11,7 @@ public class Oscillator  {
     private double squareValue;
     private double sawValue;
 
+
     public void setSineValue(double sinValue) {
         this.sinValue = sinValue;
         System.out.println("sin set to: " + this.sinValue);

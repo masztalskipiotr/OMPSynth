@@ -7,6 +7,7 @@ public class Synth  {
     static Player player = new Player();
     MidiController control = new MidiController();
 
+
     public Synth() {
         osc = new Oscillator[16];
         for (int i = 0; i < 16; i++) {

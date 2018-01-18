@@ -20,6 +20,7 @@ public class Player extends Thread {
     public static final int BUFFER_SIZE = 2048;
     public static final int SAMPLES_PER_BUFFER = BUFFER_SIZE / 2;
 
+
     public Player() {
 
         // Create the audio format we wish to use
